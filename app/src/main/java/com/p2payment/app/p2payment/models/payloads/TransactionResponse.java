@@ -7,5 +7,5 @@ package com.p2payment.app.p2payment.models.payloads;
 public class TransactionResponse {
 
     public boolean status = false;
-    public String data = "";
+    public String message = "";
 }

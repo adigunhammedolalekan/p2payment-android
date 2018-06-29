@@ -35,6 +35,6 @@ public interface P2PaymentService {
     Call<TransactionResponse> transaction(@Body TransactionPayload payload);
 
     @POST("me/wallet/credit")
-    Call<BaseModel<BaseResponse>> creditWallet(@Body CreditTopUpPayload payload);
+    Call<BaseModel<Wallet>> creditWallet(@Body CreditTopUpPayload payload);
 
 }

@@ -88,7 +88,7 @@ public class SendMoneyActivity extends BaseActivity {
                     if (response.isSuccessful()) {
                         TransactionResponse model = response.body();
                         if (model != null && model.status) {
-                            snack(model.data);
+                            snack(model.message);
                         }
                     }else {
                         snack(Util.message());
