@@ -12,6 +12,9 @@ import com.p2payment.app.p2payment.MainApplication;
 
 public class RepositoryManager {
 
+    /*
+    * A simple class to easily maintain app prefs
+    * */
     private static RepositoryManager manager; //
     private SharedPreferences mSharedPreferences;
 

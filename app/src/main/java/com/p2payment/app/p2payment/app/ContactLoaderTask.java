@@ -22,6 +22,10 @@ import java.util.Map;
 
 public class ContactLoaderTask implements Runnable {
 
+    /*
+    * A simple Runnable to load user's contact from android contact database.
+    * */
+
     private Handler handler = new Handler(Looper.getMainLooper());
     private CallBack mCallBack;
     private Context mContext;

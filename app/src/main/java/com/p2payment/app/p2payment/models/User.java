@@ -24,6 +24,9 @@ public class User {
         return new Gson().toJson(this);
     }
 
+    /*
+    * Save current user's details into app prefs, including the JWT token retrieved from the backend
+    * */
     public void persist() {
 
         SharedPreferences.Editor editor = RepositoryManager.manager().preferences().edit();
@@ -33,6 +36,9 @@ public class User {
         editor.putString(KEY, JSON()).apply();
     }
 
+    /*
+    * returns currently logged in user, returns @null if there's no logged in user.
+    * */
     public static User currentUser() {
 
         String user = RepositoryManager.manager().preferences().getString(KEY, "");
