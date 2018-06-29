@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">P2payment</string>
+    <string name="notice_">FlutterWave requires a registered company name,
+ * a verification document and other infos that i do not have.
+ * Some this endpoints simply takes an amount passed in and credit the user's account wallet</string>
+</resources>

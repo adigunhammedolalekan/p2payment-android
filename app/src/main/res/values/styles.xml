@@ -1,0 +1,23 @@
+<resources>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ButtonStyle" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ButtonStyle.BorderLess" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="android:textSize">12sp</item>
+    </style>
+</resources>

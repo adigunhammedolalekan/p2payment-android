@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="32dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send Money"
+            android:textSize="20sp"/>
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:met_primaryColor="@color/colorPrimary"
+            android:hint="Beneficiary Phone number"
+            android:textSize="16sp"
+            android:id="@+id/edt_beneficiary_phone_send_money_activity"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/ButtonStyle.BorderLess"
+            android:id="@+id/btn_add_contact_from_phonebook"
+            android:text="Add from phonebook"/>
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Amount"
+            app:met_primaryColor="@color/colorPrimary"
+            android:inputType="number"
+            android:id="@+id/edt_amount_send_money_activity"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SEND"
+            style="@style/ButtonStyle"
+            android:id="@+id/btn_send_activity_send_money"/>
+    </LinearLayout>
+</ScrollView>
