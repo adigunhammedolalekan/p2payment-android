@@ -73,6 +73,9 @@ public class SignInActivity extends BaseActivity {
                     BaseModel<User> baseModel = response.body();
                     if (baseModel != null && baseModel.status) {
 
+                        /*
+                        * Save returned user's details
+                        * */
                         User loggedInUser = baseModel.data;
                         loggedInUser.persist();
 
