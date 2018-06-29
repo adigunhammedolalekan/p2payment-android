@@ -79,8 +79,6 @@ public class ContactChooserActivity extends BaseActivity {
             for (Contact contact : contacts)
                 mContacts.add(contact);
 
-            if (contactAdapter != null)
-                contactAdapter.notifyDataSetChanged();
 
             if (contactAdapter != null)
                 contactAdapter.notifyDataSetChanged();

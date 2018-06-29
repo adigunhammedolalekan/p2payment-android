@@ -1,8 +1,12 @@
 package com.p2payment.app.p2payment.ui.activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.ActionBar;
 
 import com.p2payment.app.p2payment.R;
@@ -32,7 +36,7 @@ public class SendMoneyActivity extends BaseActivity {
     @BindView(R.id.edt_beneficiary_phone_send_money_activity)
     MaterialEditText beneficiaryPhoneNumberEditText;
 
-    public static final int RC_CHOOSE_CONTACT = 151;
+    public static final int RC_CHOOSE_CONTACT = 151, RC_PERMISSION_CODE = 152;
 
 
     @Override
@@ -49,8 +53,7 @@ public class SendMoneyActivity extends BaseActivity {
 
     @OnClick(R.id.btn_add_contact_from_phonebook) public void onClickContactPicker() {
 
-        Intent intent = new Intent(this, ContactChooserActivity.class);
-        startActivityForResult(intent, RC_CHOOSE_CONTACT);
+        requestRuntimePermission();
 
     }
 
@@ -118,6 +121,35 @@ public class SendMoneyActivity extends BaseActivity {
                     beneficiaryPhoneNumberEditText.setText(contact.phone);
                     break;
             }
+        }
+    }
+
+    private void requestRuntimePermission() {
+
+        int status = ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS);
+        if (status != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_CONTACTS}, RC_PERMISSION_CODE);
+        }else {
+
+            Intent intent = new Intent(this, ContactChooserActivity.class);
+            startActivityForResult(intent, RC_CHOOSE_CONTACT);
+
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == RC_PERMISSION_CODE && grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+            Intent intent = new Intent(this, ContactChooserActivity.class);
+            startActivityForResult(intent, RC_CHOOSE_CONTACT);
+        }else {
+            showDialog("Permission Denied",
+                    "P2Payment has been denied permission to read contact.");
         }
     }
 }
